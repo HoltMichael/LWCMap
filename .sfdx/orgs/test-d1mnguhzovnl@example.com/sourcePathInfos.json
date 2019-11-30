@@ -180,14 +180,14 @@
     [
         "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.html",
         {
-            "state": "u",
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.html",
             "isDirectory": false,
+            "size": 1553,
+            "modifiedTime": 1575075706775,
+            "changeTime": 1575075706775,
+            "contentHash": "adebf7c7688eb4a7b098b01281895331de13e173",
             "isMetadataFile": false,
-            "size": 1504,
-            "modifiedTime": 1575072607968,
-            "changeTime": 1575072607968,
-            "contentHash": "ead0d8e7e06ee7f74825c563e83a2c39eaa21868"
+            "state": "u"
         }
     ],
     [
@@ -195,10 +195,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.js",
             "isDirectory": false,
-            "size": 1002,
-            "modifiedTime": 1575051927517,
-            "changeTime": 1575051927517,
-            "contentHash": "c6cdeed6f4a7c44733f5894d8146b50db5f773d8",
+            "size": 1028,
+            "modifiedTime": 1575113737532,
+            "changeTime": 1575113737532,
+            "contentHash": "5c3d986bbb41cda6d1595164fb5f29f9a74b7421",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -208,10 +208,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.js-meta.xml",
             "isDirectory": false,
-            "size": 1705,
-            "modifiedTime": 1575051876556,
-            "changeTime": 1575051876556,
-            "contentHash": "19c69c56d5fce24c83be014edde37d7313b13bb9",
+            "size": 1810,
+            "modifiedTime": 1575074307222,
+            "changeTime": 1575074307222,
+            "contentHash": "8227528c4a5d05240f9634d7e8a054a3180e7864",
             "isMetadataFile": true,
             "state": "u"
         }
@@ -219,14 +219,14 @@
     [
         "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController.cls",
         {
+            "state": "u",
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController.cls",
             "isDirectory": false,
-            "size": 2629,
-            "modifiedTime": 1575050691276,
-            "changeTime": 1575050691276,
-            "contentHash": "6a50bb86a0c9553d0c08708bcbdb115b9ec76d97",
             "isMetadataFile": false,
-            "state": "u"
+            "size": 3508,
+            "modifiedTime": 1575114433442,
+            "changeTime": 1575114433442,
+            "contentHash": "eb03c341843974996969143a10f745d1567baff2"
         }
     ],
     [

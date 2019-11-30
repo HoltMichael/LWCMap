@@ -6,35 +6,59 @@ public with sharing class LtngMapController {
         String mapName = ' ';
         String mapDesc = ' ';
         String objType = recId.getsobjecttype() + '';
-        String fields = street + ',' + city + ',' + state + ',' + country + ',' + postcode + ' ';
+        String fields = street + ',' + city + ',' + state + ',' + country + ',' + postcode;
         
         if(notNullOrBlank(recordName)){
-            fields += ', ' + recordName + ' ';
+            fields += ',' + recordName;
         }else{
             recordName = '';
         }
         if(notNullOrBlank(recordDesc)){
-            fields += ', ' + recordDesc + ' ';
+            fields += ',' + recordDesc;
         } 
 
-        String query = 'SELECT ' + fields + ' FROM ' + objType + ' WHERE id = ' + '\'' + recId + '\'';
-        system.debug(query);
-        SObject recordDetail = Database.query(query);
-        Location loc = new Location((string)recordDetail.get(street), (string)recordDetail.get(city), (string)recordDetail.get(state), (string)recordDetail.get(country), (string)recordDetail.get(postcode));
-        if(notNullOrBlank(recordName)){
-            mapName = (string)recordDetail.get(recordName);
+        if(hasAccess(objType, fields.split(','))){
+            String query = 'SELECT ' + fields + ' FROM ' + objType + ' WHERE id = ' + '\'' + recId + '\'';
+            system.debug(query);
+            SObject recordDetail = Database.query(query);
+            Location loc = new Location((string)recordDetail.get(street), (string)recordDetail.get(city), (string)recordDetail.get(state), (string)recordDetail.get(country), (string)recordDetail.get(postcode));
+            if(notNullOrBlank(recordName)){
+                mapName = (string)recordDetail.get(recordName);
+            }
+            if(notNullOrBlank(recordDesc)){
+                mapDesc = (string)recordDetail.get(recordDesc);
+            }
+            MapMarker mark = new MapMarker('icon', mapName, mapDesc, loc);
+            system.debug(mark);
+            List<MapMarker> locs = new List<MapMarker>{mark};
+            return locs;
+        }else{
+            return null;
         }
-        if(notNullOrBlank(recordDesc)){
-            mapDesc = (string)recordDetail.get(recordDesc);
-        }
-        MapMarker mark = new MapMarker('icon', mapName, mapDesc, loc);
-        system.debug(mark);
-        List<MapMarker> locs = new List<MapMarker>{mark};
-        return locs;
     }
 
     public static boolean notNullOrBlank(String fieldName){
         return (fieldName != null && fieldName != '');
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static boolean hasAccess(String SObj, List<String> fields){
+        SObjectType objType = Schema.getGlobalDescribe().get(SObj);
+        Map<String,Schema.SObjectField> fieldMap = objType.getDescribe().fields.getMap();
+
+        boolean access = true;
+        for(String field : fields){
+            system.debug(fieldMap);
+            system.debug(fields);
+            system.debug(field);
+            if (!fieldMap.get(field).getDescribe().isAccessible()) {
+                access = false;
+                system.debug('Field: ' + field);
+                system.debug('Access: ' + access);
+                throw new System.NoAccessException();
+            }
+        }
+        return access;
     }
 
     public class MapMarker{

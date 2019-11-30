@@ -16,6 +16,7 @@
             <property name="country" type="String" label="Country Field API Name" default="BillingCountry" required="true"/>
             <property name="postcode" type="String" label="Postal Code Field API Name" default="BillingPostalCode" required="true"/>
             <property name="margin" type="boolean" label="With Margin" default="false"/>
+            <property name="marginTitle" type="String" label="Margin Title" default="Account Location"/>
         </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

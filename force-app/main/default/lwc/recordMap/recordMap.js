@@ -12,12 +12,12 @@ export default class PropertyMap extends LightningElement {
     @api postcode;
     @api zoomLevel;
     @api margin;
+    @api marginTitle = '';
     @api recordName = '';
     @api recordDesc = '';
 
     @track propertyLocs;
     @track error;
-
 
     @wire(getPropertyAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc'})
     wiredProperties({error,data}) {
