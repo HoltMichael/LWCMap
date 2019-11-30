@@ -1,7 +1,11 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": {},
+        "paths": {
+            "c/recordMap": [
+                "recordMap/recordMap.js"
+            ]
+        },
         "experimentalDecorators": true
     },
     "include": [

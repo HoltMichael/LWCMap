@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="propertyMap">
+    <apiVersion>47.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+      <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property name="zoomLevel" type="Integer" label="Map Zoom Level" default="12" required="true"/>
+            <property name="recordName" type="String" label="Name Field API Name" default="name" required="false" description="The location title for the marker, displayed in the location list and in the info window when you click a marker."/>
+            <property name="recordDesc" type="String" label="Description Field API Name" default="description" required="false" description="The information displayed in the info window when you click a marker or location title."/>
+            <property name="street" type="String" label="Street Field API Name" default="BillingStreet" required="true"/>
+            <property name="city" type="String" label="City Field API Name" default="BillingCity" required="true"/>
+            <property name="state" type="String" label="State Field API Name" default="BillingState" required="true"/>
+            <property name="country" type="String" label="Country Field API Name" default="BillingCountry" required="true"/>
+            <property name="postcode" type="String" label="Postal Code Field API Name" default="BillingPostalCode" required="true"/>
+            <property name="margin" type="boolean" label="With Margin" default="false"/>
+        </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>
