@@ -18,6 +18,8 @@ export default class PropertyMap extends LightningElement {
 
     @track propertyLocs;
     @track error;
+    @track error1 = ''
+    @track error2 = ''
 
     @wire(getPropertyAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc'})
     wiredProperties({error,data}) {
@@ -27,6 +29,8 @@ export default class PropertyMap extends LightningElement {
         } else if (error) {
             console.log('error');
             console.log(JSON.stringify(error, null, '\t'));
+            this.error1 = 'Error: No access to specified mapping fields.'
+            this.error2 = 'Please consult with your Salesforce Administrator'
             this.error = error;
         }
     }

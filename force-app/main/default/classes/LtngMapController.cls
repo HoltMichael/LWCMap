@@ -1,13 +1,22 @@
 public with sharing class LtngMapController {
 
+    //Holds all the fields for an error to be inserted in the @future method.
+    //Doesn't actually get directly inserted
+    public static ltngMap__Map_Error__c mapError = new ltngMap__Map_Error__c();
+
+    /*
+        getPropertyAddress
+        Retrieves the values for the specified fields on the record the component is currently sitting on
+        Uses the Location and MapMarker inner classes to hold the data and returns them to the component for display
+        If the user does not have permission, sends null to the component
+    */
     @AuraEnabled(cacheable=true)
     public static List<MapMarker> getPropertyAddress(id recId, String street, String city, String state, String country, String postcode, String recordName, String recordDesc) {
-        system.debug(recId);
         String mapName = ' ';
         String mapDesc = ' ';
         String objType = recId.getsobjecttype() + '';
         String fields = street + ',' + city + ',' + state + ',' + country + ',' + postcode;
-        
+
         if(notNullOrBlank(recordName)){
             fields += ',' + recordName;
         }else{
@@ -17,9 +26,14 @@ public with sharing class LtngMapController {
             fields += ',' + recordDesc;
         } 
 
-        if(hasAccess(objType, fields.split(','))){
-            String query = 'SELECT ' + fields + ' FROM ' + objType + ' WHERE id = ' + '\'' + recId + '\'';
-            system.debug(query);
+        String query = 'SELECT ' + fields + ' FROM ' + objType + ' WHERE id = ' + '\'' + recId + '\'';
+        setCoreErrorFields(query, objType, recId);
+
+        boolean access = hasAccess(objType, fields.split(','));
+        
+        //Even if we know the user doesn't have access to the fields, try and run the query anyway.
+        //That way, the error log will also tell the admin of any invalid fields
+        try{
             SObject recordDetail = Database.query(query);
             Location loc = new Location((string)recordDetail.get(street), (string)recordDetail.get(city), (string)recordDetail.get(state), (string)recordDetail.get(country), (string)recordDetail.get(postcode));
             if(notNullOrBlank(recordName)){
@@ -29,38 +43,114 @@ public with sharing class LtngMapController {
                 mapDesc = (string)recordDetail.get(recordDesc);
             }
             MapMarker mark = new MapMarker('icon', mapName, mapDesc, loc);
-            system.debug(mark);
             List<MapMarker> locs = new List<MapMarker>{mark};
             return locs;
-        }else{
-            return null;
+        }catch(Exception e){
+            mapError.ltngMap__Exception_Type__c	+= e.getTypeName();
+            mapError.ltngMap__Exception_Message__c += e.getMessage();
+        }
+
+        insertError(
+            mapError.ltngMap__Record_ID__c,
+            mapError.ltngMap__Object_Name__c,
+            mapError.ltngMap__Mapping_Query__c,
+            mapError.ltngMap__Inaccessible_Fields__c,
+            mapError.ltngMap__Exception_Type__c,
+            mapError.ltngMap__Exception_Message__c);
+        return null;
+    }
+
+    /*
+        insertError
+        If an error has occurred which doesn't already match an error created today, 
+        insert an error record to let the sys admin know.
+        In all likelihood, the executing user doesn't have access to the error object
+        but we should insert the error object anyway, for the admin.
+        Needs to be @Future due to @AuraEnabled method being cacheable.
+        @Future only takes primative types
+    */
+    @future
+    public static void insertError(String id, String obj, String query, String fields, String type, String msg){
+        boolean createdToday = false;
+        List<ltngMap__Map_Error__c> errors = [SELECT id, 
+            ltngMap__Record_ID__c, 
+            ltngMap__Mapping_Query__c, 
+            ltngMap__Inaccessible_Fields__c,
+            ltngMap__Exception_Type__c,
+            ltngMap__Exception_Message__c FROM ltngMap__Map_Error__c WHERE CreatedDate = TODAY];
+        
+        for(ltngMap__Map_Error__c error : errors){
+            if(error.ltngMap__Record_ID__c == id &&
+                error.ltngMap__Mapping_Query__c == query &&
+                error.ltngMap__Inaccessible_Fields__c == fields &&
+                error.ltngMap__Exception_Type__c == type &&
+                error.ltngMap__Exception_Message__c == msg){
+                    createdToday = true;
+                }
+        }
+        if(!createdToday){
+            insert new ltngMap__Map_Error__c(
+                ltngMap__Record_ID__c = id,
+                ltngMap__Object_Name__c = obj,
+                ltngMap__Mapping_Query__c = query,
+                ltngMap__Inaccessible_Fields__c = fields,
+                ltngMap__Exception_Type__c = type,
+                ltngMap__Exception_Message__c = msg);
         }
     }
 
+    /*
+        setCoreErrorFields
+        Set up the error record with the record details in case we need
+        to insert the record due to an error 
+    */
+    public static void setCoreErrorFields(String query, String objType, String id){
+        mapError.ltngMap__Record_ID__c = id;
+        mapError.ltngMap__Object_Name__c = objType;
+        mapError.ltngMap__Mapping_Query__c = query;
+        mapError.ltngMap__Inaccessible_Fields__c = '';
+        mapError.ltngMap__Exception_Type__c= '';
+        mapError.ltngMap__Exception_Message__c= '';
+    }
+
+    /*
+        notNullOrBlank
+        Returns true if a given string is either a null value or empty String
+    */
     public static boolean notNullOrBlank(String fieldName){
         return (fieldName != null && fieldName != '');
     }
 
-    @AuraEnabled(cacheable=true)
+    /*
+        hasAccess
+        Determins whether a given list of strings are accessible to the current user, for a given object
+    */
     public static boolean hasAccess(String SObj, List<String> fields){
         SObjectType objType = Schema.getGlobalDescribe().get(SObj);
         Map<String,Schema.SObjectField> fieldMap = objType.getDescribe().fields.getMap();
 
         boolean access = true;
         for(String field : fields){
-            system.debug(fieldMap);
-            system.debug(fields);
-            system.debug(field);
-            if (!fieldMap.get(field).getDescribe().isAccessible()) {
-                access = false;
-                system.debug('Field: ' + field);
-                system.debug('Access: ' + access);
-                throw new System.NoAccessException();
+            try{
+                if (!fieldMap.get(field).getDescribe().isAccessible()) {
+                    access = false;
+                    mapError.ltngMap__Inaccessible_Fields__c += field + ', ';
+                }
+            }catch(Exception e){
+                mapError.ltngMap__Exception_Type__c	+= e.getTypeName() + ' | ';
+                mapError.ltngMap__Exception_Message__c += e.getMessage() + ' | ';   
             }
+        }
+        if(!access){
+            mapError.ltngMap__Exception_Type__c += new System.NoAccessException().getTypeName() + ', ';
         }
         return access;
     }
 
+    /*
+        MapMarker
+        Holds the data structure for the lightning-map component
+    */
     public class MapMarker{
         @AuraEnabled 
         public String icon;  
@@ -79,6 +169,10 @@ public with sharing class LtngMapController {
         }
     }
 
+    /*
+        Location
+        Holds the data structure for inside the lightning-map component
+    */
     public class Location{
         @AuraEnabled 
         public String Street;

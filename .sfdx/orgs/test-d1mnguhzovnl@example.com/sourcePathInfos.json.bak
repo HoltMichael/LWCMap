@@ -34,10 +34,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default",
             "isDirectory": true,
-            "size": 160,
-            "modifiedTime": 1574940067393,
-            "changeTime": 1574940067393,
-            "contentHash": "a21009004cd572d890d65233421722a21fcb20a4",
+            "size": 320,
+            "modifiedTime": 1575281761084,
+            "changeTime": 1575281761084,
+            "contentHash": "eacd9038e9e3fc7040e2f415fb927e0fe044e7a5",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -182,10 +182,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.html",
             "isDirectory": false,
-            "size": 1553,
-            "modifiedTime": 1575075706775,
-            "changeTime": 1575075706775,
-            "contentHash": "adebf7c7688eb4a7b098b01281895331de13e173",
+            "size": 2405,
+            "modifiedTime": 1575198320769,
+            "changeTime": 1575198320769,
+            "contentHash": "97bfa720bc0496612bcc019b527e8b93dae8b08a",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -195,10 +195,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.js",
             "isDirectory": false,
-            "size": 1028,
-            "modifiedTime": 1575113737532,
-            "changeTime": 1575113737532,
-            "contentHash": "5c3d986bbb41cda6d1595164fb5f29f9a74b7421",
+            "size": 1226,
+            "modifiedTime": 1575280109226,
+            "changeTime": 1575280109226,
+            "contentHash": "fadd0b4cce8c74ca2f6486b02d4f02c4fe3162da",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -223,10 +223,10 @@
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController.cls",
             "isDirectory": false,
             "isMetadataFile": false,
-            "size": 3520,
-            "modifiedTime": 1575114330801,
-            "changeTime": 1575114330801,
-            "contentHash": "3400c2b982b96252168b44a33ed9914cd34e2054"
+            "size": 6555,
+            "modifiedTime": 1575287299612,
+            "changeTime": 1575287299612,
+            "contentHash": "57d18447f8f4d9ac5e7bd05fc870e641e0b004c8"
         }
     ],
     [
@@ -239,6 +239,266 @@
             "changeTime": 1575026428992,
             "contentHash": "50701282159e2679109ad6da2dfbb354eca50ce0",
             "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Account/listViews/All.listView-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Account/listViews/All.listView-meta.xml",
+            "isDirectory": false,
+            "size": 436,
+            "modifiedTime": 1575281761051,
+            "changeTime": 1575281761051,
+            "contentHash": "1fc287e41c8f59c1e4c386a8e20afe767b116887",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/Mapping_Error__c.object-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/Mapping_Error__c.object-meta.xml",
+            "isDirectory": false,
+            "size": 5177,
+            "modifiedTime": 1575281761063,
+            "changeTime": 1575281761063,
+            "contentHash": "15e8eafa0191c5defb23f970f4b48926d2b1ede2",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/fields/Inaccessible_Fields__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/fields/Inaccessible_Fields__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 710,
+            "modifiedTime": 1575281761064,
+            "changeTime": 1575281761064,
+            "contentHash": "8928b9a81edc78e2f3508c13402f725395081a82",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/fields/Mapping_Query__c.field-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/fields/Mapping_Query__c.field-meta.xml",
+            "isDirectory": false,
+            "size": 709,
+            "modifiedTime": 1575281761064,
+            "changeTime": 1575281761064,
+            "contentHash": "8c4ae2e2ab500406df6886a65e7b8ad680750799",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/listViews/All.listView-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/listViews/All.listView-meta.xml",
+            "isDirectory": false,
+            "size": 204,
+            "modifiedTime": 1575281761065,
+            "changeTime": 1575281761065,
+            "contentHash": "a09136a1a46c72265bcd1de0f4a07ba06ec1e9bd",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/layouts/Mapping_Error__c-Mapping Error Layout.layout-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/layouts/Mapping_Error__c-Mapping Error Layout.layout-meta.xml",
+            "isDirectory": false,
+            "size": 2239,
+            "modifiedTime": 1575281761070,
+            "changeTime": 1575281761070,
+            "contentHash": "3f27464cbaf94965bcf4a43d5994bd77213903e5",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/flexipages/Contact_Record_Page.flexipage-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/flexipages/Contact_Record_Page.flexipage-meta.xml",
+            "isDirectory": false,
+            "size": 4777,
+            "modifiedTime": 1575281761074,
+            "changeTime": 1575281761074,
+            "contentHash": "5f1fce7a67a8845323d6c72d2d6a63e5374354f6",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/flexipages/Account_Record_Page.flexipage-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/flexipages/Account_Record_Page.flexipage-meta.xml",
+            "isDirectory": false,
+            "size": 5584,
+            "modifiedTime": 1575281761079,
+            "changeTime": 1575281761079,
+            "contentHash": "d575bbe77523b2d759a537130464b729f4fc528d",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/tabs/Mapping_Error__c.tab-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/tabs/Mapping_Error__c.tab-meta.xml",
+            "isDirectory": false,
+            "size": 186,
+            "modifiedTime": 1575281761081,
+            "changeTime": 1575281761081,
+            "contentHash": "e799316639cd10f8f49d47ac77f0519316ebc492",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/settings/Security.settings-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/settings/Security.settings-meta.xml",
+            "isDirectory": false,
+            "size": 2635,
+            "modifiedTime": 1575281761085,
+            "changeTime": 1575281761085,
+            "contentHash": "10c8fb9032c41ce4dec4db9ee053554b398e1a8e",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Account/listViews",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Account/listViews",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1575281761051,
+            "changeTime": 1575281761051,
+            "contentHash": "0b3931647b535802350a588b8bf16d4ae6cc2ed6",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Account",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Account",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1575281761050,
+            "changeTime": 1575281761050,
+            "contentHash": "1003ed7ace0a22575202c755ad5f988148ca2df5",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1575281761062,
+            "changeTime": 1575281761062,
+            "contentHash": "7acf4546785e1e627478589c9ea511510d39e4af",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c",
+            "isDirectory": true,
+            "size": 160,
+            "modifiedTime": 1575281761065,
+            "changeTime": 1575281761065,
+            "contentHash": "3ae0e3fff9e8231d1a915851c43aba94a3a2b6d0",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/fields",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/fields",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1575281761064,
+            "changeTime": 1575281761064,
+            "contentHash": "b495a750a374b164b1f4866b36e74c405a5272cf",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/listViews",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/objects/Mapping_Error__c/listViews",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1575281761065,
+            "changeTime": 1575281761065,
+            "contentHash": "0b3931647b535802350a588b8bf16d4ae6cc2ed6",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/layouts",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/layouts",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1575281761070,
+            "changeTime": 1575281761070,
+            "contentHash": "d9cf9ea93aeb078a196b5a2530a1abcbe6132e4b",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/flexipages",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/flexipages",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1575281761078,
+            "changeTime": 1575281761078,
+            "contentHash": "32d341ff2036b42356aeaad81f9004b59abc21bf",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/tabs",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/tabs",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1575281761081,
+            "changeTime": 1575281761081,
+            "contentHash": "bdddca80b224635d20daa684b705001a128875a6",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/settings",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/settings",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1575281761085,
+            "changeTime": 1575281761085,
+            "contentHash": "e364e4d3c503804e0ca6d6bb92ab9cc0ceac2327",
+            "isMetadataFile": false,
             "state": "u"
         }
     ]

@@ -7,6 +7,16 @@
                         zoom-level={zoomLevel}>
                     </lightning-map>
                 </template>
+                <template if:false={propertyLocs}>
+                    <div class="slds-p-around_medium">
+                        <div class="slds-text-title_bold">
+                            {error1}
+                        </div>
+                        <div>
+                            {error2}
+                        </div>
+                    </div>
+                </template>
             </article>
     </template>
     <template if:true={margin}>
@@ -29,6 +39,16 @@
                                 map-markers={propertyLocs}  
                                 zoom-level={zoomLevel}>
                             </lightning-map>
+                        </template>
+                        <template if:false={propertyLocs}>
+                            <div class="slds-p-around_medium">
+                                <div class="slds-text-title_bold">
+                                    {error1}
+                                </div>
+                                <div>
+                                    {error2}
+                                </div>
+                            </div>
                         </template>
                     </article>
                 </footer>
