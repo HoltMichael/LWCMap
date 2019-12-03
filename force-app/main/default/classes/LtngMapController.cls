@@ -46,7 +46,7 @@ public with sharing class LtngMapController {
             List<MapMarker> locs = new List<MapMarker>{mark};
             return locs;
         }catch(Exception e){
-            mapError.ltngMap__Exception_Type__c	+= e.getTypeName();
+            mapError.ltngMap__Exception_Type__c += e.getTypeName();
             mapError.ltngMap__Exception_Message__c += e.getMessage();
         }
 
@@ -56,36 +56,43 @@ public with sharing class LtngMapController {
             mapError.ltngMap__Mapping_Query__c,
             mapError.ltngMap__Inaccessible_Fields__c,
             mapError.ltngMap__Exception_Type__c,
-            mapError.ltngMap__Exception_Message__c);
+            mapError.ltngMap__Exception_Message__c,
+            userInfo.getUserId());
         return null;
     }
 
     /*
         insertError
         If an error has occurred which doesn't already match an error created today, 
-        insert an error record to let the sys admin know.
+        insert an error record to let the sys admin know.git 
         In all likelihood, the executing user doesn't have access to the error object
         but we should insert the error object anyway, for the admin.
         Needs to be @Future due to @AuraEnabled method being cacheable.
         @Future only takes primative types
     */
     @future
-    public static void insertError(String id, String obj, String query, String fields, String type, String msg){
+    public static void insertError(String id, String obj, String query, String fields, String type, String msg, id usr){
         boolean createdToday = false;
         List<ltngMap__Map_Error__c> errors = [SELECT id, 
             ltngMap__Record_ID__c, 
             ltngMap__Mapping_Query__c, 
             ltngMap__Inaccessible_Fields__c,
             ltngMap__Exception_Type__c,
-            ltngMap__Exception_Message__c FROM ltngMap__Map_Error__c WHERE CreatedDate = TODAY];
-        
+            ltngMap__Exception_Message__c,
+            createdById FROM ltngMap__Map_Error__c WHERE CreatedDate = TODAY];
+
         for(ltngMap__Map_Error__c error : errors){
+            if(error.ltngMap__Inaccessible_Fields__c == null){
+                error.ltngMap__Inaccessible_Fields__c = '';
+            }
             if(error.ltngMap__Record_ID__c == id &&
                 error.ltngMap__Mapping_Query__c == query &&
                 error.ltngMap__Inaccessible_Fields__c == fields &&
                 error.ltngMap__Exception_Type__c == type &&
-                error.ltngMap__Exception_Message__c == msg){
+                error.ltngMap__Exception_Message__c == msg &&
+                error.createdById == usr){
                     createdToday = true;
+                    system.debug('Match: ' + error);
                 }
         }
         if(!createdToday){
@@ -137,7 +144,7 @@ public with sharing class LtngMapController {
                     mapError.ltngMap__Inaccessible_Fields__c += field + ', ';
                 }
             }catch(Exception e){
-                mapError.ltngMap__Exception_Type__c	+= e.getTypeName() + ' | ';
+                mapError.ltngMap__Exception_Type__c += e.getTypeName() + ' | ';
                 mapError.ltngMap__Exception_Message__c += e.getMessage() + ' | ';   
             }
         }

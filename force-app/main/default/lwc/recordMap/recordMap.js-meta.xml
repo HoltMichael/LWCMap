@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="propertyMap">
     <apiVersion>47.0</apiVersion>
+    <description>Lightning Component that shows an address on a map, given the correct address parameters within Lightning App Builder</description>
+    <masterLabel>Record Map</masterLabel>
     <isExposed>true</isExposed>
     <targets>
       <target>lightning__RecordPage</target>
@@ -15,8 +17,9 @@
             <property name="state" type="String" label="State Field API Name" default="BillingState" required="true"/>
             <property name="country" type="String" label="Country Field API Name" default="BillingCountry" required="true"/>
             <property name="postcode" type="String" label="Postal Code Field API Name" default="BillingPostalCode" required="true"/>
-            <property name="margin" type="boolean" label="With Margin" default="false"/>
+            <property name="margin" type="boolean" label="With Margin" default="true"/>
             <property name="marginTitle" type="String" label="Margin Title" default="Account Location"/>
+            <property name="iconColour" type="String" label="Icon Colour" default="#ffa500" description="The colour of the map icon within the margin. This field will take any Hex code or standard recognised CSS Colour (#ffa500). A blank field defaults to orange."/>
         </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

@@ -152,13 +152,13 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <label>Mapping Error</label>
+    <label>Map Error</label>
     <nameField>
         <displayFormat>ME-{0000}</displayFormat>
-        <label>Mapping Error Name</label>
+        <label>Map Error Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Mapping Errors</pluralLabel>
+    <pluralLabel>Map Errors</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

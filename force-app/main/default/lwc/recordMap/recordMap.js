@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 import {LightningElement, api, wire, track} from 'lwc';
 import getPropertyAddress from '@salesforce/apex/LtngMapController.getPropertyAddress';
+import {loadStyle} from 'lightning/platformResourceLoader'
+import iconBackground from '@salesforce/resourceUrl/ltngMapCSS';
 
 
 export default class PropertyMap extends LightningElement {
@@ -15,11 +17,21 @@ export default class PropertyMap extends LightningElement {
     @api marginTitle = '';
     @api recordName = '';
     @api recordDesc = '';
+    @api iconColour;
 
     @track propertyLocs;
     @track error;
     @track error1 = ''
     @track error2 = ''
+
+    connectedCallback(){
+        loadStyle(this,iconBackground);
+        this.changeColour();
+    }
+
+    changeColour(){
+        this.template.host.style.setProperty('--mapColour', this.iconColour);
+    }
 
     @wire(getPropertyAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc'})
     wiredProperties({error,data}) {
