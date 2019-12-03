@@ -1,0 +1,60 @@
+<template>
+    <template if:false={margin}>
+        <article class="slds-card">
+                <!--Can abstract this to a child component, rather
+                than replicating the code in 2 places-->
+                <template if:true={propertyLocs}>
+                    <lightning-map 
+                        map-markers={propertyLocs}  
+                        zoom-level={zoomLevel}>
+                    </lightning-map>
+                </template>
+                <template if:false={propertyLocs}>
+                    <div class="slds-p-around_medium">
+                        <div class="slds-text-title_bold">
+                            {error1}
+                        </div>
+                        <div>
+                            {error2}
+                        </div>
+                    </div>
+                </template>
+            </article>
+    </template>
+    <template if:true={margin}>
+        <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <lightning-icon icon-name="standard:location" class="icon-background" alternative-text="Approved" ></lightning-icon>
+                    </div>
+                    <div class="slds-card__header-title slds-card__header-link slds-truncate" title={marginTitle}>
+                        <span>{marginTitle}</span>
+                    </div>
+                </header>
+            </div>
+            <div>
+                <footer class="slds-card__footer">
+                    <article class="slds-card">
+                        <template if:true={propertyLocs}>
+                            <lightning-map 
+                                map-markers={propertyLocs}  
+                                zoom-level={zoomLevel}>
+                            </lightning-map>
+                        </template>
+                        <template if:false={propertyLocs}>
+                            <div class="slds-p-around_medium">
+                                <div class="slds-text-title_bold">
+                                    {error1}
+                                </div>
+                                <div>
+                                    {error2}
+                                </div>
+                            </div>
+                        </template>
+                    </article>
+                </footer>
+            </div>
+        </article>
+    </template>
+</template>

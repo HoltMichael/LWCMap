@@ -1,7 +1,14 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "paths": {},
+        "paths": {
+            "c/recordMap": [
+                "recordMap/recordMap.js"
+            ],
+            "c/errorPurge": [
+                "errorPurge/errorPurge.js"
+            ]
+        },
         "experimentalDecorators": true
     },
     "include": [

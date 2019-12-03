@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help><!-- If any exception was thrown in Apex during the course of this execution, the type of exception thrown is shown here --></help>
+    <label><!-- Exception Type --></label>
+    <name>Exception_Type__c</name>
+</CustomFieldTranslation>
