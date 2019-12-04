@@ -5,8 +5,8 @@
             "c/recordMap": [
                 "recordMap/recordMap.js"
             ],
-            "c/errorPurge": [
-                "errorPurge/errorPurge.js"
+            "c/recordMapWrap": [
+                "recordMapWrap/recordMapWrap.js"
             ]
         },
         "experimentalDecorators": true
