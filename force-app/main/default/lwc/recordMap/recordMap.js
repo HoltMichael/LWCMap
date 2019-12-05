@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import {LightningElement, api, wire, track} from 'lwc';
-import getPropertyAddress from '@salesforce/apex/LtngMapController.getPropertyAddress';
+import getAddress from '@salesforce/apex/LtngMapController.getAddress';
 
 export default class PropertyMap extends LightningElement {
     @api recordId;
@@ -20,7 +20,7 @@ export default class PropertyMap extends LightningElement {
     @track error1 = ''
     @track error2 = ''
 
-    @wire(getPropertyAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc'})
+    @wire(getAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc'})
     wiredProperties({error,data}) {
         if (data) {
             this.propertyLocs = data;

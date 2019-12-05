@@ -1,0 +1,40 @@
+=== Test Reports
+FORMAT  FILE
+──────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+txt     /Users/michael.holt/Documents/Dev Projects/maps/.sfdx/tools/testresults/apex/test-result.txt
+txt     /Users/michael.holt/Documents/Dev Projects/maps/.sfdx/tools/testresults/apex/test-run-id.txt
+junit   /Users/michael.holt/Documents/Dev Projects/maps/.sfdx/tools/testresults/apex/test-result-7077E00001yPzrN-junit.xml
+json    /Users/michael.holt/Documents/Dev Projects/maps/.sfdx/tools/testresults/apex/test-result-7077E00001yPzrN.json
+
+=== Test Results
+TEST NAME                                  OUTCOME  MESSAGE                                                                     RUNTIME (MS)
+─────────────────────────────────────────  ───────  ──────────────────────────────────────────────────────────────────────────  ────────────
+LtngMapController_Test.getPropertyAddress  Fail     System.NullPointerException: Attempt to de-reference a null object          903
+                                                    Class.ltngMap.LtngMapController_Test.getPropertyAddress: line 19, column 1
+
+=== Failures
+FULLNAME                                   MESSAGE
+─────────────────────────────────────────  ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+LtngMapController_Test.getPropertyAddress  System.NullPointerException: Attempt to de-reference a null object
+                                           /Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController_Test.cls:19:1
+
+=== Test Summary
+NAME                 VALUE
+───────────────────  ───────────────────────────────────────────────────────────
+Outcome              Failed
+Tests Ran            1
+Passing              0
+Failing              1
+Skipped              0
+Pass Rate            0%
+Fail Rate            100%
+Test Start Time      Dec 5, 2019 1:33 PM
+Test Execution Time  903 ms
+Test Total Time      903 ms
+Command Time         2562 ms
+Hostname             https://enterprise-ruby-7877-dev-ed.cs86.my.salesforce.com
+Org Id               00D7E000000E4GAUA0
+Username             test-d1mnguhzovnl@example.com
+Test Run Id          7077E00001yPzrN
+User Id              0057E000008W6ZaQAK
+

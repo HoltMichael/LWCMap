@@ -142,14 +142,13 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes",
             "isDirectory": true,
-            "size": 128,
-            "modifiedTime": 1575298211468,
-            "changeTime": 1575026428990,
-            "contentHash": "735f30d1f4a3eafde3f50cb39d2614b19a9a188e",
+            "size": 192,
+            "modifiedTime": 1575478489074,
+            "changeTime": 1575478489074,
+            "contentHash": "a551fddc4c1ad3b77992466c8d65973f955b35cb",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -196,15 +195,15 @@
     [
         "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.js",
         {
-            "state": "u",
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.js",
             "isDirectory": false,
+            "size": 1201,
+            "modifiedTime": 1575559375115,
+            "changeTime": 1575559375115,
+            "contentHash": "d041ef903bc201f23c39659e2da87cd8355128a3",
             "isMetadataFile": false,
-            "size": 2023,
-            "modifiedTime": 1575478031030,
-            "changeTime": 1575478031030,
-            "isWorkspace": false,
-            "contentHash": "0ca57b3589c71a1648b5943525ec60f8517a65b6"
+            "state": "u",
+            "isWorkspace": false
         }
     ],
     [
@@ -212,10 +211,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMap/recordMap.js-meta.xml",
             "isDirectory": false,
-            "size": 2272,
-            "modifiedTime": 1575477793467,
-            "changeTime": 1575477793467,
-            "contentHash": "486baf8208e6700643bfbb1023bcbe89d87ec6cb",
+            "size": 2005,
+            "modifiedTime": 1575478147749,
+            "changeTime": 1575478147749,
+            "contentHash": "311f6c44776c5cc8dd3d67a09aa89b1d74008e61",
             "isMetadataFile": true,
             "state": "u",
             "isWorkspace": false
@@ -224,14 +223,14 @@
     [
         "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController.cls",
         {
+            "state": "u",
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController.cls",
             "isDirectory": false,
-            "size": 7895,
-            "modifiedTime": 1575299262816,
-            "changeTime": 1575299262816,
-            "contentHash": "f400c54a62ee48798e741b42b69a0d51ad1244f9",
             "isMetadataFile": false,
-            "state": "u"
+            "size": 7798,
+            "modifiedTime": 1575562805311,
+            "changeTime": 1575562805311,
+            "contentHash": "2b6a27e4870c2a3d5e05d0fa61f1eb87d2424d74"
         }
     ],
     [
@@ -773,10 +772,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMapWrap/recordMapWrap.html",
             "isDirectory": false,
-            "size": 1513,
-            "modifiedTime": 1575477314392,
-            "changeTime": 1575477314392,
-            "contentHash": "4172c6da67d640c055cb803e64308f8bbd6a5f2b",
+            "size": 1457,
+            "modifiedTime": 1575478107096,
+            "changeTime": 1575478107096,
+            "contentHash": "8d41510ba50905233d5820802284ec7dffea64d6",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -786,10 +785,10 @@
         {
             "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/lwc/recordMapWrap/recordMapWrap.js",
             "isDirectory": false,
-            "size": 350,
-            "modifiedTime": 1575475470412,
-            "changeTime": 1575475470412,
-            "contentHash": "8f380523648585f707a5249dfc3067964c4d3b36",
+            "size": 680,
+            "modifiedTime": 1575478077270,
+            "changeTime": 1575478077270,
+            "contentHash": "c192f74c760055fc9beb0895fbbdaee2bffe2df8",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -817,6 +816,32 @@
             "changeTime": 1575477418811,
             "contentHash": "750255b7d31e8f4433b860dc0fa74cc0248f5211",
             "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController_Test.cls",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController_Test.cls",
+            "isDirectory": false,
+            "size": 5102,
+            "modifiedTime": 1575562473958,
+            "changeTime": 1575562473958,
+            "contentHash": "e919658f78134ff690eaa294f946174e7b9bd695",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController_Test.cls-meta.xml",
+        {
+            "sourcePath": "/Users/michael.holt/Documents/Dev Projects/maps/force-app/main/default/classes/LtngMapController_Test.cls-meta.xml",
+            "isDirectory": false,
+            "size": 174,
+            "modifiedTime": 1575478489074,
+            "changeTime": 1575478489074,
+            "contentHash": "50701282159e2679109ad6da2dfbb354eca50ce0",
+            "isMetadataFile": true,
             "state": "u"
         }
     ]

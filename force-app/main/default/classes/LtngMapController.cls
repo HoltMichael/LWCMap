@@ -11,7 +11,7 @@ public with sharing class LtngMapController {
         If the user does not have permission, sends null to the component
     */
     @AuraEnabled(cacheable=true)
-    public static List<MapMarker> getPropertyAddress(id recId, String street, String city, String state, String country, String postcode, String recordName, String recordDesc) {
+    public static List<MapMarker> getAddress(id recId, String street, String city, String state, String country, String postcode, String recordName, String recordDesc) {
         String mapName = ' ';
         String mapDesc = ' ';
         String objType = recId.getsobjecttype() + '';
@@ -29,27 +29,25 @@ public with sharing class LtngMapController {
         String query = 'SELECT ' + fields + ' FROM ' + objType + ' WHERE id = ' + '\'' + recId + '\'';
         setCoreErrorFields(query, objType, recId);
 
-        boolean access = hasAccess(objType, fields.split(','));
-        
-        //Even if we know the user doesn't have access to the fields, try and run the query anyway.
-        //That way, the error log will also tell the admin of any invalid fields
-        try{
-            SObject recordDetail = Database.query(query);
-            Location loc = new Location((string)recordDetail.get(street), (string)recordDetail.get(city), (string)recordDetail.get(state), (string)recordDetail.get(country), (string)recordDetail.get(postcode));
-            if(notNullOrBlank(recordName)){
-                mapName = (string)recordDetail.get(recordName);
+        if(hasAccess(objType, fields.split(','))){
+            try{
+                query = String.escapeSingleQuotes(query);
+                SObject recordDetail = Database.query(query);
+                Location loc = new Location((string)recordDetail.get(street), (string)recordDetail.get(city), (string)recordDetail.get(state), (string)recordDetail.get(postcode), (string)recordDetail.get(country));
+                if(notNullOrBlank(recordName)){
+                    mapName = (string)recordDetail.get(recordName);
+                }
+                if(notNullOrBlank(recordDesc)){
+                    mapDesc = (string)recordDetail.get(recordDesc);
+                }
+                MapMarker mark = new MapMarker('icon', mapName, mapDesc, loc);
+                List<MapMarker> locs = new List<MapMarker>{mark};
+                return locs;
+            }catch(Exception e){
+                mapError.ltngMap__Exception_Type__c += e.getTypeName();
+                mapError.ltngMap__Exception_Message__c += e.getMessage();
             }
-            if(notNullOrBlank(recordDesc)){
-                mapDesc = (string)recordDetail.get(recordDesc);
-            }
-            MapMarker mark = new MapMarker('icon', mapName, mapDesc, loc);
-            List<MapMarker> locs = new List<MapMarker>{mark};
-            return locs;
-        }catch(Exception e){
-            mapError.ltngMap__Exception_Type__c += e.getTypeName();
-            mapError.ltngMap__Exception_Message__c += e.getMessage();
         }
-
         insertError(
             mapError.ltngMap__Record_ID__c,
             mapError.ltngMap__Object_Name__c,
@@ -80,7 +78,6 @@ public with sharing class LtngMapController {
             ltngMap__Exception_Type__c,
             ltngMap__Exception_Message__c,
             createdById FROM ltngMap__Map_Error__c WHERE CreatedDate = TODAY];
-
         for(ltngMap__Map_Error__c error : errors){
             if(error.ltngMap__Inaccessible_Fields__c == null){
                 error.ltngMap__Inaccessible_Fields__c = '';
@@ -92,7 +89,6 @@ public with sharing class LtngMapController {
                 error.ltngMap__Exception_Message__c == msg &&
                 error.createdById == usr){
                     createdToday = true;
-                    system.debug('Match: ' + error);
                 }
         }
         if(!createdToday){

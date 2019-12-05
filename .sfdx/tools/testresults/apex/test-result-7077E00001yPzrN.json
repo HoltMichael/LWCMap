@@ -1,0 +1,46 @@
+{
+    "summary": {
+        "outcome": "Failed",
+        "testsRan": 1,
+        "passing": 0,
+        "failing": 1,
+        "skipped": 0,
+        "passRate": "0%",
+        "failRate": "100%",
+        "testStartTime": "Dec 5, 2019 1:33 PM",
+        "testExecutionTime": "903 ms",
+        "testTotalTime": "903 ms",
+        "commandTime": "2562 ms",
+        "hostname": "https://enterprise-ruby-7877-dev-ed.cs86.my.salesforce.com",
+        "orgId": "00D7E000000E4GAUA0",
+        "username": "test-d1mnguhzovnl@example.com",
+        "testRunId": "7077E00001yPzrN",
+        "userId": "0057E000008W6ZaQAK"
+    },
+    "tests": [
+        {
+            "attributes": {
+                "type": "ApexTestResult",
+                "url": "/services/data/v47.0/tooling/sobjects/ApexTestResult/07M7E00000AuKhlUAF"
+            },
+            "Id": "07M7E00000AuKhlUAF",
+            "QueueItemId": "7097E000001W9b7QAC",
+            "StackTrace": "Class.ltngMap.LtngMapController_Test.getPropertyAddress: line 19, column 1",
+            "Message": "System.NullPointerException: Attempt to de-reference a null object",
+            "AsyncApexJobId": "7077E00001yPzrNQAS",
+            "MethodName": "getPropertyAddress",
+            "Outcome": "Fail",
+            "ApexClass": {
+                "attributes": {
+                    "type": "ApexClass",
+                    "url": "/services/data/v47.0/tooling/sobjects/ApexClass/01p7E0000046gleQAA"
+                },
+                "Id": "01p7E0000046gleQAA",
+                "Name": "LtngMapController_Test",
+                "NamespacePrefix": "ltngMap"
+            },
+            "RunTime": 903,
+            "FullName": "LtngMapController_Test.getPropertyAddress"
+        }
+    ]
+}
