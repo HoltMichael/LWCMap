@@ -1,0 +1,4 @@
+Vulnerability:
+Client Insufficient ClickJacking Protection (Severity: Low)
+The only clickable element exposed to users is within the base Lightning-Map component provided by Salesforce.
+The app only entry fields on the component are within the App Builder and aren't used exposed to users.
