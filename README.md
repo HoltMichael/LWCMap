@@ -1,4 +1,4 @@
-# Map My Records!
+# Map My Records
 
 ## Description of Files and Directories
 The contents of this repo are assosicated with the Map My Records AppExchange listing and use the ltngMap namespace prefix. The app allows Salesforce administrators to provide a visual view of Standard and Custom object record locations quickly and easily to their page layouts. The component can be customised to include a margin, modify the icon colour and provide a default map zoom level.
