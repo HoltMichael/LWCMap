@@ -23,6 +23,10 @@ export default class RecordMapWrap extends LightningElement {
     }
 
     changeColour(){
+        console.log(this);
+        console.log(this.template);
+        console.log(this.template.host);
+        console.log(this.template.host.style);
         this.template.host.style.setProperty('--mapColour', this.iconColour);
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mapping_Query__c</fullName>
+    <description>This field is populated when an error occurs within the recordMap mapping component. The field displays the Apex query which was attempted, to retrieve the address field values. Questions? Tweet @SFMichaelHolt</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Shows the attempted Apex query when a user loads the recordMap component</inlineHelpText>
+    <label>Mapping Query</label>
+    <length>8192</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>
