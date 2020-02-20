@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exception_Message__c</fullName>
+    <description>If any exception was thrown during the Apex execution to show this component, the message is shown here</description>
+    <externalId>false</externalId>
+    <inlineHelpText>If any exception was thrown during the Apex execution to show this component, the message is shown here</inlineHelpText>
+    <label>Exception Message</label>
+    <length>8192</length>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

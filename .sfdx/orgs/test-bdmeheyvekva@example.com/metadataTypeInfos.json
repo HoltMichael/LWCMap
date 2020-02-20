@@ -1,6 +1,29 @@
 {
     "sourceApiVersion": "46.0",
     "typeDefs": {
+        "AppointmentSchedulingPolicy": {
+            "metadataName": "AppointmentSchedulingPolicy",
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "ext": "policy",
+            "hasContent": false,
+            "defaultDirectory": "appointmentSchedulingPolicies",
+            "nameForMsgs": "Appointment Scheduling Policy",
+            "nameForMsgsPlural": "Appointment Scheduling Policys",
+            "contentIsBinary": false,
+            "hasStandardMembers": false,
+            "deleteSupported": true,
+            "decompositionConfig": {
+                "strategy": "nonDecomposed",
+                "workspaceStrategy": "nonDecomposed",
+                "commitStrategy": "fineGrainTracking",
+                "metadataName": "AppointmentSchedulingPolicy",
+                "useSparseComposition": false,
+                "decompositions": [],
+                "contentStrategy": "nonDecomposedContent"
+            },
+            "hasVirtualSubtypes": false
+        },
         "InstalledPackage": {
             "metadataName": "InstalledPackage",
             "isAddressable": true,
@@ -113,6 +136,29 @@
                 "workspaceStrategy": "nonDecomposed",
                 "commitStrategy": "fineGrainTracking",
                 "metadataName": "Scontrol",
+                "useSparseComposition": false,
+                "decompositions": [],
+                "contentStrategy": "nonDecomposedContent"
+            },
+            "hasVirtualSubtypes": false
+        },
+        "TimeSheetTemplate": {
+            "metadataName": "TimeSheetTemplate",
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "ext": "timeSheetTemplate",
+            "hasContent": false,
+            "defaultDirectory": "timeSheetTemplates",
+            "nameForMsgs": "Time Sheet Template",
+            "nameForMsgsPlural": "Time Sheet Templates",
+            "contentIsBinary": false,
+            "hasStandardMembers": false,
+            "deleteSupported": true,
+            "decompositionConfig": {
+                "strategy": "nonDecomposed",
+                "workspaceStrategy": "nonDecomposed",
+                "commitStrategy": "fineGrainTracking",
+                "metadataName": "TimeSheetTemplate",
                 "useSparseComposition": false,
                 "decompositions": [],
                 "contentStrategy": "nonDecomposedContent"
@@ -2662,6 +2708,7 @@
             "childXmlNames": [
                 "SharingOwnerRule",
                 "SharingCriteriaRule",
+                "SharingGuestRule",
                 "SharingTerritoryRule"
             ],
             "hasStandardMembers": false,
@@ -3528,6 +3575,29 @@
             },
             "hasVirtualSubtypes": false
         },
+        "RestrictionRule": {
+            "metadataName": "RestrictionRule",
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "ext": "rule",
+            "hasContent": false,
+            "defaultDirectory": "restrictionRules",
+            "nameForMsgs": "Restriction Rule",
+            "nameForMsgsPlural": "Restriction Rules",
+            "contentIsBinary": false,
+            "hasStandardMembers": false,
+            "deleteSupported": true,
+            "decompositionConfig": {
+                "strategy": "nonDecomposed",
+                "workspaceStrategy": "nonDecomposed",
+                "commitStrategy": "fineGrainTracking",
+                "metadataName": "RestrictionRule",
+                "useSparseComposition": false,
+                "decompositions": [],
+                "contentStrategy": "nonDecomposedContent"
+            },
+            "hasVirtualSubtypes": false
+        },
         "Skill": {
             "metadataName": "Skill",
             "isAddressable": true,
@@ -4388,6 +4458,98 @@
                 "workspaceStrategy": "nonDecomposed",
                 "commitStrategy": "fineGrainTracking",
                 "metadataName": "LightningOnboardingConfig",
+                "useSparseComposition": false,
+                "decompositions": [],
+                "contentStrategy": "nonDecomposedContent"
+            },
+            "hasVirtualSubtypes": false
+        },
+        "NotificationTypeConfig": {
+            "metadataName": "NotificationTypeConfig",
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "ext": "config",
+            "hasContent": false,
+            "defaultDirectory": "notificationTypeConfig",
+            "nameForMsgs": "Notification Type Config",
+            "nameForMsgsPlural": "Notification Type Configs",
+            "contentIsBinary": false,
+            "hasStandardMembers": false,
+            "deleteSupported": true,
+            "decompositionConfig": {
+                "strategy": "nonDecomposed",
+                "workspaceStrategy": "nonDecomposed",
+                "commitStrategy": "fineGrainTracking",
+                "metadataName": "NotificationTypeConfig",
+                "useSparseComposition": false,
+                "decompositions": [],
+                "contentStrategy": "nonDecomposedContent"
+            },
+            "hasVirtualSubtypes": false
+        },
+        "OrderManagementSettings": {
+            "metadataName": "OrderManagementSettings",
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "ext": "OrderManagementSettings",
+            "hasContent": false,
+            "defaultDirectory": "OrderManagementSettings",
+            "nameForMsgs": "Order Management Settings",
+            "nameForMsgsPlural": "Order Management Settingses",
+            "contentIsBinary": false,
+            "hasStandardMembers": false,
+            "deleteSupported": true,
+            "decompositionConfig": {
+                "strategy": "nonDecomposed",
+                "workspaceStrategy": "nonDecomposed",
+                "commitStrategy": "fineGrainTracking",
+                "metadataName": "OrderManagementSettings",
+                "useSparseComposition": false,
+                "decompositions": [],
+                "contentStrategy": "nonDecomposedContent"
+            },
+            "hasVirtualSubtypes": false
+        },
+        "SurveySettings": {
+            "metadataName": "SurveySettings",
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "ext": "survey",
+            "hasContent": false,
+            "defaultDirectory": "surveySettings",
+            "nameForMsgs": "Survey Settings",
+            "nameForMsgsPlural": "Survey Settingses",
+            "contentIsBinary": false,
+            "hasStandardMembers": false,
+            "deleteSupported": true,
+            "decompositionConfig": {
+                "strategy": "nonDecomposed",
+                "workspaceStrategy": "nonDecomposed",
+                "commitStrategy": "fineGrainTracking",
+                "metadataName": "SurveySettings",
+                "useSparseComposition": false,
+                "decompositions": [],
+                "contentStrategy": "nonDecomposedContent"
+            },
+            "hasVirtualSubtypes": false
+        },
+        "paymentGatewayProvider": {
+            "metadataName": "paymentGatewayProvider",
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "ext": "paymentGatewayProvider",
+            "hasContent": false,
+            "defaultDirectory": "paymentGatewayProvider",
+            "nameForMsgs": "payment Gateway Provider",
+            "nameForMsgsPlural": "payment Gateway Providers",
+            "contentIsBinary": false,
+            "hasStandardMembers": false,
+            "deleteSupported": true,
+            "decompositionConfig": {
+                "strategy": "nonDecomposed",
+                "workspaceStrategy": "nonDecomposed",
+                "commitStrategy": "fineGrainTracking",
+                "metadataName": "paymentGatewayProvider",
                 "useSparseComposition": false,
                 "decompositions": [],
                 "contentStrategy": "nonDecomposedContent"
@@ -5869,6 +6031,7 @@
                 "childXmlNames": [
                     "SharingOwnerRule",
                     "SharingCriteriaRule",
+                    "SharingGuestRule",
                     "SharingTerritoryRule"
                 ],
                 "hasStandardMembers": false,
@@ -5910,6 +6073,7 @@
                 "childXmlNames": [
                     "SharingOwnerRule",
                     "SharingCriteriaRule",
+                    "SharingGuestRule",
                     "SharingTerritoryRule"
                 ],
                 "hasStandardMembers": false,
@@ -5937,6 +6101,48 @@
             "nameForMsgsPlural": "Sharing Criteria Rules",
             "deleteSupported": true
         },
+        "SharingGuestRule": {
+            "parent": {
+                "metadataName": "SharingRules",
+                "isAddressable": true,
+                "isSourceTracked": true,
+                "ext": "sharingRules",
+                "hasContent": false,
+                "defaultDirectory": "sharingRules",
+                "nameForMsgs": "Sharing Rule",
+                "nameForMsgsPlural": "Sharing Rules",
+                "contentIsBinary": false,
+                "childXmlNames": [
+                    "SharingOwnerRule",
+                    "SharingCriteriaRule",
+                    "SharingGuestRule",
+                    "SharingTerritoryRule"
+                ],
+                "hasStandardMembers": false,
+                "deleteSupported": true,
+                "decompositionConfig": {
+                    "strategy": "nonDecomposed",
+                    "workspaceStrategy": "nonDecomposed",
+                    "commitStrategy": "fineGrainTracking",
+                    "metadataName": "SharingRules",
+                    "useSparseComposition": false,
+                    "decompositions": [],
+                    "contentStrategy": "nonDecomposedContent"
+                },
+                "hasVirtualSubtypes": true
+            },
+            "metadataName": "SharingGuestRule",
+            "defaultDirectory": "sharingGuestRules",
+            "ext": "sharingGuestRule",
+            "hasStandardMembers": false,
+            "hasContent": false,
+            "contentIsBinary": false,
+            "isAddressable": true,
+            "isSourceTracked": true,
+            "nameForMsgs": "Sharing Guest Rule",
+            "nameForMsgsPlural": "Sharing Guest Rules",
+            "deleteSupported": true
+        },
         "SharingTerritoryRule": {
             "parent": {
                 "metadataName": "SharingRules",
@@ -5951,6 +6157,7 @@
                 "childXmlNames": [
                     "SharingOwnerRule",
                     "SharingCriteriaRule",
+                    "SharingGuestRule",
                     "SharingTerritoryRule"
                 ],
                 "hasStandardMembers": false,

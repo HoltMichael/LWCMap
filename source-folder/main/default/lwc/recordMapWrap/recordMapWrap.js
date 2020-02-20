@@ -1,6 +1,5 @@
+/* eslint-disable no-console */
 import { LightningElement, api } from 'lwc';
-import {loadStyle} from 'lightning/platformResourceLoader'
-import iconBackground from '@salesforce/resourceUrl/ltngMapCSS';
 
 export default class RecordMapWrap extends LightningElement {
     @api recordId;
@@ -17,11 +16,10 @@ export default class RecordMapWrap extends LightningElement {
     @api iconColour;
 
     connectedCallback(){
-        loadStyle(this,iconBackground);
-        this.changeColour();
+        //Nothing to do here anymore. Formerly loaded the colours in from CSS file
     }
 
-    changeColour(){
-        this.template.host.style.setProperty('--mapColour', this.iconColour);
+    get colour(){
+        return 'background:' + this.iconColour;
     }
 }
