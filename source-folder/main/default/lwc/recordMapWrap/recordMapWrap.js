@@ -3,11 +3,12 @@ import { LightningElement, api } from 'lwc';
 
 export default class RecordMapWrap extends LightningElement {
     @api recordId;
-    @api street;
-    @api city;
-    @api state;
-    @api country;
-    @api postcode;
+    @api street = '';
+    @api city = '';
+    @api state = '';
+    @api country = '';
+    @api postcode = '';
+    @api geolocation = '';
     @api zoomLevel;
     @api margin;
     @api marginTitle = '';

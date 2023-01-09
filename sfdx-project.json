@@ -3,9 +3,9 @@
         {
             "path": "source-folder",
             "package": "LightningMap",
-            "versionName": "ver 0.3",
-            "versionNumber": "0.3.0.NEXT",
-            "ancestorId": "04t1n0000028Nc6AAE",
+            "versionName": "ver 1.0",
+            "versionNumber": "1.0.0.NEXT",
+            "ancestorId": "04t1n000002WsInAAK",
             "default": true
         }
     ],
@@ -23,6 +23,7 @@
         "LightningMap@0.1.0.7": "04t1n0000028Nm2AAE",
         "LightningMap@0.1.0-8": "04t1n0000028Nm7AAE",
         "LightningMap@0.2.0-2": "04t1n0000028NmRAAU",
-        "LightningMap@0.3.0-2": "04t1n0000028NmbAAE"
+        "LightningMap@0.3.0-2": "04t1n0000028NmbAAE",
+        "LightningMap@1.0.0-1": "04t1n0000028OGbAAM"
     }
 }

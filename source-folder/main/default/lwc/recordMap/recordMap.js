@@ -9,25 +9,27 @@ export default class PropertyMap extends LightningElement {
     @api state;
     @api country;
     @api postcode;
+    @api geolocation;
     @api zoomLevel;
     @api margin;
     @api marginTitle = '';
     @api recordName = '';
     @api recordDesc = '';
+    
 
     @track propertyLocs;
     @track error;
     @track error1 = ''
     @track error2 = ''
 
-    @wire(getAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc'})
+    @wire(getAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc', geo: '$geolocation'})
     wiredProperties({error,data}) {
         if (data) {
+            //console.log(JSON.stringify(data, null, '\t'));
             this.propertyLocs = data;
-            console.log(JSON.stringify(data, null, '\t'));
         } else if (error) {
-            console.log('error');
-            console.log(JSON.stringify(error, null, '\t'));
+            // console.log('error');
+            // console.log(JSON.stringify(error, null, '\t'));
             this.error1 = 'Error: No access to specified mapping fields.'
             this.error2 = 'Please consult with your Salesforce Administrator'
             this.error = error;

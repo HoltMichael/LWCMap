@@ -10,16 +10,17 @@
     <targetConfigs>
         <targetConfig targets="lightning__RecordPage">
             <property name="zoomLevel" type="Integer" label="Map Zoom Level" default="12" required="true"/>
-            <property name="recordName" type="String" label="Name Field API Name" default="name" required="false" description="The location title for the marker, displayed in the location list and in the info window when you click a marker."/>
-            <property name="recordDesc" type="String" label="Description Field API Name" default="description" required="false" description="The information displayed in the info window when you click a marker or location title."/>
-            <property name="street" type="String" label="Street Field API Name" default="BillingStreet" required="true"/>
-            <property name="city" type="String" label="City Field API Name" default="BillingCity" required="true"/>
-            <property name="state" type="String" label="State Field API Name" default="BillingState" required="true"/>
-            <property name="country" type="String" label="Country Field API Name" default="BillingCountry" required="true"/>
-            <property name="postcode" type="String" label="Postal Code Field API Name" default="BillingPostalCode" required="true"/>
-            <property name="margin" type="boolean" label="With Margin" default="true"/>
-            <property name="marginTitle" type="String" label="Margin Title" default="Account Location"/>
-            <property name="iconColour" type="String" label="Icon Colour" default="#ffa500" description="The colour of the map icon within the margin. This field will take any Hex code or standard recognised CSS Colour (#ffa500). A blank field defaults to orange."/>
+            <property name="recordName" type="String" label="Name Field API Name" default="name" required="false" description="The location title for the marker, displayed in the location list and in the info window when you click a marker."></property>
+            <property name="recordDesc" type="String" label="Description Field API Name" default="description" required="false" description="The information displayed in the info window when you click a marker or location title."></property>
+            <property name="street" type="String" label="Street Field API Name" default="BillingStreet" required="false" description="This field is mandatory unless using a geolocation field."></property>
+            <property name="city" type="String" label="City Field API Name" default="BillingCity" required="false" description="This field is mandatory unless using a geolocation field."></property>
+            <property name="state" type="String" label="State Field API Name" default="BillingState" required="false" description="This field is mandatory unless using a geolocation field."></property>
+            <property name="country" type="String" label="Country Field API Name" default="BillingCountry" required="false" description="This field is mandatory unless using a geolocation field."></property>
+            <property name="postcode" type="String" label="Postal Code Field API Name" default="BillingPostalCode" required="false" description="This field is mandatory unless using a geolocation field."></property>
+            <property name="geolocation" type="String" label="Geolocation Field API Name" default="" required="false" description="Used for geolocation fields. If a value is entered here, address fields above will not apply."></property>
+            <property name="margin" type="boolean" label="With Margin" default="true"></property>
+            <property name="marginTitle" type="String" label="Margin Title" default="Account Location"></property>
+            <property name="iconColour" type="String" label="Icon Colour" default="#ffa500" description="The colour of the map icon within the margin. This field will take any Hex code or standard recognised CSS Colour (#ffa500). A blank field defaults to orange."></property>
         </targetConfig>
   </targetConfigs>
 </LightningComponentBundle>

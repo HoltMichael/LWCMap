@@ -17,7 +17,7 @@ public with sharing class LtngMapController_Test {
         Contact cont = [SELECT firstname, lastName, mailingStreet, mailingCity ,mailingState ,mailingCountry,mailingPostalCode FROM Contact][0];
 
         test.startTest();
-            List<LtngMapController.MapMarker> mapMarkers = LtngMapController.getAddress(cont.id, 'abc', 'def', 'hij', 'klm', 'nop', 'qrs', 'tuv');         
+            List<LtngMapController.MapMarker> mapMarkers1 = LtngMapController.getAddress(cont.id, 'abc', 'def', 'hij', 'klm', 'nop', 'qrs', 'tuv', '');   
         test.stopTest();
 
         ltngMap__Map_Error__c mapError = [SELECT id, ltngMap__Record_ID__c, 
@@ -35,7 +35,7 @@ public with sharing class LtngMapController_Test {
         system.assert(mapError.ltngMap__Exception_Message__c.contains('No such column'));
 
         //Re-create the exact same error immediately after, it should not create a second identical error message
-        List<LtngMapController.MapMarker> mapMarkers1 = LtngMapController.getAddress(cont.id, 'abc', 'def', 'hij', 'klm', 'nop', 'qrs', 'tuv');         
+        List<LtngMapController.MapMarker> mapMarkers2 = LtngMapController.getAddress(cont.id, 'abc', 'def', 'hij', 'klm', 'nop', 'qrs', 'tuv', 'wxy');         
         List<ltngMap__Map_Error__c> mapErrors = [SELECT id, ltngMap__Record_ID__c, 
             ltngMap__Mapping_Query__c, 
             ltngMap__Inaccessible_Fields__c,
@@ -52,7 +52,7 @@ public with sharing class LtngMapController_Test {
     static void getAddress_Contact(){
         Contact cont = [SELECT firstname, lastName, mailingStreet, mailingCity ,mailingState ,mailingCountry,mailingPostalCode FROM Contact][0];
         test.startTest();
-            List<LtngMapController.MapMarker> mapMarkers = LtngMapController.getAddress(cont.id, 'mailingStreet', 'mailingCity', 'mailingState', 'mailingCountry', 'mailingPostalCode', 'FirstName', 'LastName');         
+            List<LtngMapController.MapMarker> mapMarkers = LtngMapController.getAddress(cont.id, 'mailingStreet', 'mailingCity', 'mailingState', 'mailingCountry', 'mailingPostalCode', 'FirstName', 'LastName', '');         
         test.stopTest();
 
         system.assertEquals(mapMarkers.size(),1);
@@ -79,7 +79,7 @@ public with sharing class LtngMapController_Test {
         Account acc = [SELECT name, description, billingStreet, billingCity, billingState, billingCountry,billingPostalCode FROM Account][0];
 
         test.startTest();
-            List<LtngMapController.MapMarker> mapMarkers = LtngMapController.getAddress(acc.id, 'billingStreet', 'billingCity', 'billingState', 'billingCountry', 'billingPostalCode', 'Name', 'description');
+            List<LtngMapController.MapMarker> mapMarkers = LtngMapController.getAddress(acc.id, 'billingStreet', 'billingCity', 'billingState', 'billingCountry', 'billingPostalCode', 'Name', 'description', '');
         test.stopTest();
 
         system.assertEquals(mapMarkers.size(),1);

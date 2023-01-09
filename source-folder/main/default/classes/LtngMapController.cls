@@ -11,11 +11,20 @@ public with sharing class LtngMapController {
         If the user does not have permission, sends null to the component
     */
     @AuraEnabled(cacheable=true)
-    public static List<MapMarker> getAddress(id recId, String street, String city, String state, String country, String postcode, String recordName, String recordDesc) {
+    public static List<MapMarker> getAddress(id recId, String street, String city, String state, String country, String postcode, String recordName, String recordDesc, String geo) {
         String mapName = ' ';
         String mapDesc = ' ';
         String objType = recId.getsobjecttype() + '';
-        String fields = street + ',' + city + ',' + state + ',' + country + ',' + postcode;
+        String fields = '';
+        Boolean geoField = false;
+        if(!notNullOrBlank(geo.trim())){
+            fields = street + ',' + city + ',' + state + ',' + country + ',' + postcode;
+        }else{
+            geo = geo.left(geo.length()-1).trim(); //Remove the c from __c so it can be replace with lat and long
+            fields = geo + 'latitude__s,' + geo + 'longitude__s';
+            geoField = true;
+        }
+
 
         if(notNullOrBlank(recordName)){
             fields += ',' + recordName;
@@ -34,7 +43,13 @@ public with sharing class LtngMapController {
         if(hasAccess(objType, fields.split(','))){
             try{
                 SObject recordDetail = Database.query(query);
-                Location loc = new Location((string)recordDetail.get(street), (string)recordDetail.get(city), (string)recordDetail.get(state), (string)recordDetail.get(postcode), (string)recordDetail.get(country));
+
+                Location loc = new Location();
+                if(geoField){
+                    loc.setLocation((Decimal)recordDetail.get(geo + 'latitude__s'), (Decimal)recordDetail.get(geo + 'longitude__s'));
+                }else{
+                    loc.setLocation((string)recordDetail.get(street), (string)recordDetail.get(city), (string)recordDetail.get(state), (string)recordDetail.get(postcode), (string)recordDetail.get(country));
+                }
                 if(notNullOrBlank(recordName)){
                     mapName = (string)recordDetail.get(recordName);
                 }
@@ -60,10 +75,22 @@ public with sharing class LtngMapController {
         return null;
     }
 
+    @AuraEnabled(cacheable=true)
+    public static List<MapMarker> getAddressFromLatLong(String lat, String lon){
+        return null;
+
+
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<MapMarker> getAddressFromAddressFields(id recId, String street, String city, String state, String country, String postcode, String recordName, String recordDesc){
+        return null;
+    }
+
     /*
         insertError
         If an error has occurred which doesn't already match an error created today, 
-        insert an error record to let the sys admin know.git 
+        insert an error record to let the sys admin know. 
         In all likelihood, the executing user doesn't have access to the error object
         but we should insert the error object anyway, for the admin.
         Needs to be @Future due to @AuraEnabled method being cacheable.
@@ -188,13 +215,26 @@ public with sharing class LtngMapController {
         public String State; 
         @AuraEnabled 
         public String Country; 
+        @AuraEnabled
+        public Decimal Latitude;
+        @AuraEnabled
+        public Decimal Longitude;
 
-        public Location(String strt, String cit, String stat, String pc, String ctry){
+        public void setLocation(String strt, String cit, String stat, String pc, String ctry){
             Street = strt;
             City = cit;
             State = stat;
             PostalCode = pc;
             Country = ctry;
+        }
+
+        public void setLocation(Decimal lat, Decimal lon){
+            Latitude = lat;
+            Longitude = lon;
+        }
+
+        public Location(){
+
         }
     }
 }
