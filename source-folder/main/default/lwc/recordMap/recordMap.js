@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 import {LightningElement, api, wire, track} from 'lwc';
 import getAddress from '@salesforce/apex/LtngMapController.getAddress';
+import { getRecord } from 'lightning/uiRecordApi';
+import { refreshApex } from '@salesforce/apex';
 
 export default class PropertyMap extends LightningElement {
     @api recordId;
@@ -21,9 +23,13 @@ export default class PropertyMap extends LightningElement {
     @track error;
     @track error1 = ''
     @track error2 = ''
+    wiredPropertyResult;
 
     @wire(getAddress, {recId: '$recordId', street: '$street', city: '$city', state: '$state', country: '$country', postcode: '$postcode', recordName: '$recordName', recordDesc: '$recordDesc', geo: '$geolocation'})
-    wiredProperties({error,data}) {
+    wiredProperties(value){
+        this.wiredPropertyResult = value;
+        const {data, error} = value;
+        
         if (data) {
             //console.log(JSON.stringify(data, null, '\t'));
             this.propertyLocs = data;
@@ -35,4 +41,17 @@ export default class PropertyMap extends LightningElement {
             this.error = error;
         }
     }
+
+    FIELDS = ['Id'];
+
+    @wire(getRecord, { recordId: '$recordId', fields: '$FIELDS' })
+    wiredRecord({error, data}){
+        if(error){
+            console.log(error);
+        }else {
+            console.log('Hello');
+            refreshApex(this.wiredPropertyResult);
+        }
+    }
+
 }
