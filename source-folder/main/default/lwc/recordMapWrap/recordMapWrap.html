@@ -1,6 +1,6 @@
 <template>
     <template if:false={margin}>
-            <c-record-map record-id='{recordId}' street='{street}' city='{city}' state='{state}' country='{country}' postcode='{postcode}' zoom-level='{zoomLevel}' margin='{margin}' margin-title='{marginTitle}' record-name='{recordName}' record-desc='{recordDesc}'></c-record-map>
+            <c-record-map record-id='{recordId}' street='{street}' city='{city}' state='{state}' country='{country}' postcode='{postcode}' geolocation={geolocation} zoom-level='{zoomLevel}' margin='{margin}' margin-title='{marginTitle}' record-name='{recordName}' record-desc='{recordDesc}'></c-record-map>
     </template>
     <template if:true={margin}>
         <article class="slds-card">

@@ -42,14 +42,13 @@ export default class PropertyMap extends LightningElement {
         }
     }
 
-    FIELDS = ['Id'];
+    FIELDS = [''];
 
     @wire(getRecord, { recordId: '$recordId', fields: '$FIELDS' })
     wiredRecord({error, data}){
         if(error){
             console.log(error);
         }else {
-            console.log('Hello');
             refreshApex(this.wiredPropertyResult);
         }
     }
