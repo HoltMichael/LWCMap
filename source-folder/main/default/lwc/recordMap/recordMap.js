@@ -42,7 +42,8 @@ export default class PropertyMap extends LightningElement {
         }
     }
 
-    FIELDS = [''];
+    //Refresh the component when the record is updated
+    FIELDS = ['Id'];
 
     @wire(getRecord, { recordId: '$recordId', fields: '$FIELDS' })
     wiredRecord({error, data}){
