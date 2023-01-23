@@ -17,12 +17,12 @@ public with sharing class LtngMapController {
         String objType = recId.getsobjecttype() + '';
         String fields = '';
         Boolean geoField = false;
-        if(!notNullOrBlank(geo.trim())){
-            fields = street + ',' + city + ',' + state + ',' + country + ',' + postcode;
-        }else{
+        if(notNullOrBlank(geo.trim())){
             geo = geo.left(geo.length()-1).trim(); //Remove the c from __c so it can be replace with lat and long
             fields = geo + 'latitude__s,' + geo + 'longitude__s';
             geoField = true;
+        }else{
+            fields = street + ',' + city + ',' + state + ',' + country + ',' + postcode;
         }
 
 
